@@ -4,7 +4,7 @@
     <form method="POST" action="/login" class="grid grid-cols-1 gap-6">
         <label class="block">
             <span class="text-gray-700">Email address</span>
-            <input name="email" type="email" autocomplete="email" required
+            <input value="<?= $_SESSION['_flash']['old']['email'] ?? '' ?>" name="email" type="email" autocomplete="email" required
                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                    placeholder="john@example.com"/>
             <div class="bg-gray-100 text-red-500">

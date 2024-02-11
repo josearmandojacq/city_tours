@@ -43,6 +43,7 @@ $errors = [
 ];
 
 $_SESSION["_flash"]["errors"] = $errors;
+$_SESSION["_flash"]["old"]["email"] = $email;
 
 return redirect("/login");
 
