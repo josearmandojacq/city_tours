@@ -2,52 +2,67 @@
 
 namespace Core;
 
+use Core\Middleware\{Guest, Admin, Middleware};
+
 class Router
 {
-    protected $routes = [];
+    protected array $routes = [];
 
-    public function add($method, $uri, $controller): void
+    public function add($method, $uri, $controller): static
     {
         $this->routes[] = [
             "uri" => $uri,
             "controller" => $controller,
-            "method" => $method
+            "method" => $method,
+            "middleware" => null
         ];
-    }
-    public function get($uri, $controller): void
-    {
-        $this->add("GET", $uri, $controller);
+
+        return $this;
     }
 
-    public function post($uri, $controller): void
+    public function get($uri, $controller)
     {
-        $this->add("POST", $uri, $controller);
+        return $this->add("GET", $uri, $controller);
     }
 
-    public function delete($uri, $controller): void
+    public function post($uri, $controller)
     {
-        $this->add("DELETE", $uri, $controller);
+        return $this->add("POST", $uri, $controller);
     }
 
-    public function put($uri, $controller): void
+    public function delete($uri, $controller)
     {
-        $this->add("PUT", $uri, $controller);
+        return $this->add("DELETE", $uri, $controller);
     }
 
-    public function patch($uri, $controller): void
+    public function put($uri, $controller): static
     {
-        $this->add("PATCH", $uri, $controller);
+        return $this->add("PUT", $uri, $controller);
+    }
+
+    public function patch($uri, $controller): static
+    {
+        return $this->add("PATCH", $uri, $controller);
+    }
+
+    public function only($key): static
+    {
+        $this->routes[array_key_last($this->routes)]["middleware"] = $key;
+
+        return $this;
     }
 
     public function route($path, $method)
     {
-       foreach ($this->routes as $route) {
-           if ($route["uri"] === $path && $route["method"] === strtoupper($method)) {
-               return require base_path($route["controller"]);
-           }
-       }
+        foreach ($this->routes as $route) {
+            if ($route["uri"] === $path && $route["method"] === strtoupper($method)) {
+                Middleware::resolve($route["middleware"]);
 
-       abort();
+                return require base_path($route["controller"]);
+            }
+        }
+
+        abort();
     }
 }
 
