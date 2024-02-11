@@ -9,5 +9,8 @@ $router->get("/login", "controllers/login.php");
 $router->get("/register", "controllers/register.php");
 
 $router->get("/tour", "controllers/tours/show.php");
-$router->post("/tour", "controllers/tours/create.php");
+$router->get("/tour/create", "controllers/tours/create.php");
+$router->post("/tour", "controllers/tours/store.php");
 $router->delete("/tour", "controllers/tours/destroy.php");
+$router->get("/tour/edit", "controllers/tours/edit.php");
+$router->patch("/tour", "controllers/tours/update.php");

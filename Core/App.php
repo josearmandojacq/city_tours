@@ -5,7 +5,7 @@ namespace Core;
 class App
 {
     protected static $container;
-    public static function setContainer($container)
+    public static function setContainer($container): void
     {
         static::$container = $container;
     }
@@ -15,7 +15,7 @@ class App
         return static::$container;
     }
 
-    public static function bind($key, $resolver)
+    public static function bind($key, $resolver): void
     {
         static::container()->add($key, $resolver);
     }
