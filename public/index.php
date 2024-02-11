@@ -2,7 +2,9 @@
 
 require __DIR__ . "/../Core/functions.php";
 
-use Core\{Database, Router};
+use Core\Router;
+
+session_start();
 
 spl_autoload_register(function ($class) {
     $class = str_replace("\\", DIRECTORY_SEPARATOR, $class);
@@ -22,5 +24,3 @@ $path = $url["path"];
 $method = $_POST["_method"] ?? $_SERVER["REQUEST_METHOD"];
 
 $router->route($path, $method);
-
-session_start();

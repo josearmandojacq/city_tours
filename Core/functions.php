@@ -20,7 +20,7 @@ function base_path($path): string
     return __DIR__ . "/../" . $path;
 }
 
-function view($path, $attributes = []): void
+function view($path, $attributes = [])
 {
     extract($attributes);
     require base_path("views/" . $path);
