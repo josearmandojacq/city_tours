@@ -35,9 +35,7 @@ if ($user) {
         ]
     );
 
-    $_SESSION["user"] = [
-        "email" => $email
-    ];
+    login($email);
 
     header("location: /");
     exit();

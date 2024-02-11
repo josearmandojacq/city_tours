@@ -8,4 +8,9 @@ class Validator
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL);
     }
+
+    public static function password($password): bool
+    {
+       return (bool)$password;
+    }
 }
