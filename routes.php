@@ -10,3 +10,4 @@ $router->get("/register", "controllers/register.php");
 
 $router->get("/tour", "controllers/tours/show.php");
 $router->post("/tour", "controllers/tours/create.php");
+$router->delete("/tour", "controllers/tours/destroy.php");
