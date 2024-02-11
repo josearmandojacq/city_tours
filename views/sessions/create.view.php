@@ -26,6 +26,11 @@
             </div>
 
         </label>
+        <div class="bg-gray-100 text-red-500">
+            <?php if (isset($errors["general"])) : ?>
+                <p><?= $errors["general"] ?></p>
+            <?php endif; ?>
+        </div>
         <button type="submit" class="block w-full py-2 bg-indigo-600 text-white rounded">
             Submit
         </button>

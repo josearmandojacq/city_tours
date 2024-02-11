@@ -24,3 +24,5 @@ $path = $url["path"];
 $method = $_POST["_method"] ?? $_SERVER["REQUEST_METHOD"];
 
 $router->route($path, $method);
+
+unset($_SESSION["_flash"]);

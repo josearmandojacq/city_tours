@@ -38,9 +38,11 @@ if ($user) {
     }
 }
 
+$errors = [
+    "general" => "Ungültiges Email oder Passwort"
+];
 
-return view("sessions/create.view.php", [
-    "errors" => [
-        "email" => "Ungültiges Email oder Passwort"
-    ]
-]);
+$_SESSION["_flash"]["errors"] = $errors;
+
+return redirect("/login");
+
