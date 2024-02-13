@@ -40,8 +40,10 @@ if ($user) {
         "email" => $email
     ])->fetch();
 
-    login($user);
-
-    header("location: /");
-    exit();
+    if ($user) {
+        if(login($user, $password)) {
+            header("location: /");
+            die();
+        }
+    }
 }

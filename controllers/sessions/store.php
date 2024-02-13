@@ -30,11 +30,9 @@ $user = $db->query(
 )->fetch();
 
 if ($user) {
-    if (password_verify($password, $user["password"])) {
-        login($user);
-
+    if(login($user, $password)) {
         header("location: /");
-        exit();
+        die();
     }
 }
 

@@ -6,7 +6,7 @@ use Core\Middleware\{Guest, Admin, Middleware};
 
 class Router
 {
-    protected array $routes = [];
+    public array $routes = [];
 
     public function add($method, $uri, $controller): static
     {

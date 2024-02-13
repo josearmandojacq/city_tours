@@ -32,11 +32,16 @@ function redirect($path)
     exit();
 }
 
-function login($user): void
+function login($user, $password): bool
 {
-    $_SESSION["user"] = $user;
+    if (password_verify($password, $user["password"])) {
+        $_SESSION["user"] = $user;
 
-    session_regenerate_id(true);
+        session_regenerate_id(true);
+        return true;
+    }
+
+    return false;
 }
 
 function logout(): void
