@@ -28,6 +28,7 @@ html {
 body {
   margin: 0;
   line-height: inherit;
+  font-family: Arial, sans-serif;
 }
 
 hr {
@@ -716,6 +717,14 @@ select {
   width: 2.5rem;
 }
 
+.w-20 {
+  width: 8rem;
+}
+
+.w-50 {
+  width: 20rem;
+}
+
 .w-4 {
   width: 1rem;
 }
@@ -1181,43 +1190,6 @@ hr {
   margin-bottom: 1.5rem;
 }
 
-.file\:mr-4::file-selector-button {
-  margin-right: 1rem;
-}
-
-.file\:border-0::file-selector-button {
-  border-width: 0px;
-}
-
-.file\:bg-violet-100::file-selector-button {
-  --tw-bg-opacity: 1;
-  background-color: rgb(237 233 254 / var(--tw-bg-opacity));
-}
-
-.file\:px-8::file-selector-button {
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-.file\:py-2::file-selector-button {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.file\:text-sm::file-selector-button {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.file\:font-semibold::file-selector-button {
-  font-weight: 600;
-}
-
-.file\:text-violet-700::file-selector-button {
-  --tw-text-opacity: 1;
-  color: rgb(109 40 217 / var(--tw-text-opacity));
-}
-
 .placeholder\:text-gray-400::-moz-placeholder {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
@@ -1378,4 +1350,129 @@ hr {
 .image-container-e img {
   width: 100%;
   height: auto;
+}
+
+p {
+  font-size: 150%;
+}
+
+.text-big {
+  font-size: 150%;
+}
+
+.text-medium {
+  font-size: 100%;
+}
+
+.buses,
+.accommodations {
+  margin-bottom: 20px;
+}
+
+.travel-info h1,
+.buses h3,
+.accommodations h3,
+.equipment-form h3 {
+  color: #333;
+  text-align: center;
+  font-size: 200%;
+}
+
+.times {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.times th,
+.times td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.times th {
+  background-color: #f2f2f2;
+}
+
+.bus,
+.accommodation {
+  display: inline-block;
+  width: 18%;
+  padding: 10px;
+  margin: 1%;
+  background-color: #f9f9f9;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+}
+
+.container-e {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.image-container-e img {
+  width: 800px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.info-container-e {
+  width: calc(100% - 320px);
+  margin: 20px;
+}
+
+.times {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.times th,
+.times td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.times th {
+  background-color: #f2f2f2;
+}
+
+.center-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*checkboxen*/
+.equipment-form {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.checkbox-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.button-container {
+  width: 100%; /* Ensures the container takes full width */
+  display: flex;
+  justify-content: center; /* Centers the button horizontally */
+}
+
+.checkbox-group label {
+  background: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 5px;
 }

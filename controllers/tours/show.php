@@ -64,6 +64,7 @@ $accommodations = $db->query(
     ]
 )->fetchAll();
 
+
 $images = $db->query(
     "select * from images where tour_id = :id",
     [
