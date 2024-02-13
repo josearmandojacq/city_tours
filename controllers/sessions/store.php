@@ -31,7 +31,7 @@ $user = $db->query(
 
 if ($user) {
     if (password_verify($password, $user["password"])) {
-        login($email);
+        login($user);
 
         header("location: /");
         exit();

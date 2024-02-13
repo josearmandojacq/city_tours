@@ -35,7 +35,12 @@ if ($user) {
         ]
     );
 
-    login($email);
+    $user = $db->query(
+        "select * from users where email = :email", [
+        "email" => $email
+    ])->fetch();
+
+    login($user);
 
     header("location: /");
     exit();

@@ -32,11 +32,9 @@ function redirect($path)
     exit();
 }
 
-function login($email): void
+function login($user): void
 {
-    $_SESSION["user"] = [
-        "email" => $email
-    ];
+    $_SESSION["user"] = $user;
 
     session_regenerate_id(true);
 }

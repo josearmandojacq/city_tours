@@ -29,4 +29,9 @@ class Database
 
         return $statement;
     }
+
+    public function lastInsertedID()
+    {
+        return $this->connection->lastInsertId();
+    }
 }

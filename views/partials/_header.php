@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="assets/main.css"/>
+    <link rel="stylesheet" href="/assets/main.css"/>
 </head>
 
 <body class="bg-indigo-50 font-['Outfit']">
@@ -19,7 +19,7 @@
         <a href="/" class="-m-1.5 p-1.5 text-white text-2xl font-bold">City Tours</a>
         <!-- Navigation Links -->
         <div class="flex lg:gap-x-10">
-            <a href="/about" class="text-gray-300 hover:text-white transition">About</a>
+            <a href="/about" class="text-gray-300 hover:text-white transition">Über</a>
             <?php if ($_SESSION["user"] ?? false) : ?>
                 <a href="/logout" class="text-gray-300 hover:text-white transition">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
