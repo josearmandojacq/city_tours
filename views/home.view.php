@@ -71,24 +71,6 @@
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                         </svg>
                     </a>
-                    <?php if (isset($_SESSION["user"]) && $_SESSION["user"]["role"] != "admin") : ?>
-                        <!-- Booking -->
-                        <a href="/book?id=<?= $tour["id"] ?>"
-                           class="p-2 bg-emerald-50 text-xs text-emerald-900 hover:bg-emerald-500 hover:text-white transition rounded">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                 fill="none"
-                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                 class="feather feather-calendar-check">
-                                <!-- Calendar shape -->
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                <line x1="3" y1="10" x2="21" y2="10"></line>
-                                <!-- Check mark -->
-                                <polyline points="10 14 14 18 20 12"></polyline>
-                            </svg>
-                        </a>
-                    <?php endif; ?>
 
                     <?php if (isset($_SESSION["user"]) && $_SESSION["user"]["role"] === "admin") : ?>
                         <a href="/tour/edit?id=<?= $tour["id"] ?>"

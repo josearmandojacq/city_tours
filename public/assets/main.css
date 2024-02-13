@@ -1476,3 +1476,11 @@ p {
 .checkbox-group input[type="checkbox"] {
   margin-right: 5px;
 }
+
+.border-b.border-gray-200.pb-4 h3 {
+  text-align: center;
+}
+
+.py-4.text-xl.text-gray-600 {
+  text-align: center;
+}
