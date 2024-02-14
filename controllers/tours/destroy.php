@@ -40,7 +40,7 @@ $images = $db->query(
 if ($images)
 {
     foreach ($images as $image) {
-        unlink($image["path"]);
+        unlink("/uploads/" . $image["name"]);
     }
 }
 

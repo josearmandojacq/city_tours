@@ -10,15 +10,12 @@ $router->post("/login", "controllers/sessions/store.php")->only("guest");
 
 $router->get("/tour", "controllers/tours/show.php");
 $router->get("/tour/create", "controllers/tours/create.php")->only("admin");
-$router->post("/tour", "controllers/tours/store.php");
-$router->get("/tour/delete", "controllers/tours/destroy.php");
-$router->get("/tour/edit", "controllers/tours/edit.php");
+$router->post("/tour", "controllers/tours/store.php")->only("admin");
+$router->get("/tour/delete", "controllers/tours/destroy.php")->only("admin");
+$router->get("/tour/edit", "controllers/tours/edit.php")->only("admin");
 
 $router->get("/register", "controllers/registration/create.php")->only("guest");
-$router->post("/register", "controllers/registration/store.php");
+$router->post("/register", "controllers/registration/store.php")->only("guest");;
 
-$router->get("/logout", "controllers/sessions/destroy.php")->only("admin");
-
-$router->get("/book", "controllers/bookings/create.php");
-$router->post("/book", "controllers/bookings/store.php");
+$router->get("/logout", "controllers/sessions/destroy.php");
 

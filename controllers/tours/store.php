@@ -33,7 +33,7 @@ if (isset($_FILES['image'])) {
 
     for ($i = 0; $i < $totalFiles; $i++) {
         if ($_FILES['image']['error'][$i] == 0) {
-            $filename = $_FILES['image']['name'][$i];
+            $filename = bin2hex(random_bytes(16)) . "-" . $_FILES['image']['name'][$i];
             $filesize = $_FILES["image"]["size"][$i];
             $filetype = $_FILES["image"]["type"][$i];
 
@@ -52,8 +52,8 @@ if (isset($_FILES['image'])) {
 
             if (move_uploaded_file($tmpName, $destination)) {
                $db->query(
-                   "insert into images(path, tour_id) values(:path, :tour_id)", [
-                       "path" => $destination,
+                   "insert into images(name, tour_id) values(:name, :tour_id)", [
+                       "name" => $filename,
                        "tour_id" => $tourID
                    ]
                );
