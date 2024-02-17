@@ -40,6 +40,7 @@ if ($user) {
         "email" => $email
     ])->fetch();
 
+
     if ($user) {
         if(login($user, $password)) {
             header("location: /");

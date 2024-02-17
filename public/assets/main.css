@@ -987,6 +987,10 @@ select {
   padding-right: 0.25rem;
 }
 
+.pr-10 {
+  padding-right: 20rem;
+}
+
 .pt-4 {
   padding-top: 1rem;
 }
@@ -1365,7 +1369,8 @@ p {
 }
 
 .buses,
-.accommodations {
+.accommodations,
+.buses {
   margin-bottom: 20px;
 }
 
@@ -1399,7 +1404,7 @@ p {
   display: inline-block;
   width: 18%;
   padding: 10px;
-  margin: 1%;
+  margin: 3% 1% 3% 1%;
   background-color: #f9f9f9;
   text-align: center;
   border: 1px solid #ddd;
@@ -1483,4 +1488,8 @@ p {
 
 .py-4.text-xl.text-gray-600 {
   text-align: center;
+}
+
+#dropdownMenu {
+  z-index: 10;
 }

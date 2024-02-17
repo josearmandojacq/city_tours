@@ -21,22 +21,50 @@
         <!-- Navigation Links -->
         <div class="flex lg:gap-x-10">
             <a href="/about" class="text-gray-300 hover:text-white transition">Über</a>
-            <?php if ($_SESSION["user"] ?? false) : ?>
-                <a href="/logout" class="text-gray-300 hover:text-white transition">
+            <div class="relative">
+                <button id="dropdownButton" class="focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                         stroke="currentColor" class="w-6 h-6 inline-block">
+                         stroke="currentColor" class="w-6 h-6 text-gray-300 hover:text-white transition cursor-pointer">
                         <path stroke-linecap="round" stroke-linejoin="round"
                               d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
                     </svg>
+                </button>
+                <div id="dropdownMenu"
+                     class="hidden absolute right-0 mt-2 bg-white divide-y divide-gray-100 rounded shadow-lg w-48">
+                    <?php if (isset($_SESSION["user"])) : ?>
+                        <?php if ($_SESSION["user"]["role"] === "admin") : ?>
+                            <!-- Admin-specific links -->
+                            <a href="/bus" class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Busse</a>
+                            <a href="/accommodations" class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Unterkünfte</a>
+                        <?php endif; ?>
+                        <!-- Logout is available to all logged-in users, including admins -->
+                        <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Abmelden</a>
+                    <?php else : ?>
+                        <!-- Links available to non-logged-in users -->
+                        <a href="/login" class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Anmelden</a>
+                        <a href="/register" class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Registrieren</a>
+                    <?php endif; ?>
 
-                    Abmelden
-                </a>
-            <?php else : ?>
-                <a href="/login" class="text-gray-300 hover:text-white transition">Anmelden</a>
-                <a href="/register" class="text-gray-300 hover:text-white transition">Registrieren</a>
-            <?php endif; ?>
-
+                </div>
+            </div>
         </div>
     </nav>
 </header>
 <!-- End Header -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownButton = document.getElementById('dropdownButton');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        dropdownButton.addEventListener('click', function() {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        window.addEventListener('click', function(e) {
+            if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+    });
+</script>
