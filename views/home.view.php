@@ -62,7 +62,7 @@
                 <!-- Actions -->
                 <td class="p-4 text-sm text-gray-600 flex justify-center space-x-2">
                     <a href="/tour?id=<?= $tour["id"] ?>"
-                       class="p-2 bg-amber-50 text-xs text-amber-900 hover:bg-amber-500 hover:text-white transition rounded">
+                       class="p-2 bg-emerald-50 text-xs text-emerald-900 hover:bg-emerald-500 hover:text-white transition rounded">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                              fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"

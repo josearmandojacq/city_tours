@@ -34,7 +34,7 @@
                     <?php if (isset($_SESSION["user"])) : ?>
                         <?php if ($_SESSION["user"]["role"] === "admin") : ?>
                             <!-- Admin-specific links -->
-                            <a href="/bus" class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Busse</a>
+                            <a href="/buses" class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Busse</a>
                             <a href="/accommodations" class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Unterkünfte</a>
                         <?php endif; ?>
                         <!-- Logout is available to all logged-in users, including admins -->
