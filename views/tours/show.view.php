@@ -5,7 +5,10 @@
     <div class="container-e">
         <div class="image-container-e">
             <?php foreach ($images as $image) : ?>
-                <img src="<?= __DIR__ . "/../../uploads/" . $image["name"] ?>" alt="city image"/>
+                <img src="<?= __DIR__ . "/../../uploads/" . $image["name"] ?>"
+                     alt="city image"
+                     onerror="this.onerror=null; this.src='https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_1280.jpg';"
+                />
             <?php endforeach; ?>
         </div>
         <div class="info-container-e">
@@ -49,5 +52,3 @@
 </section>
 
 <?php include __DIR__ . "/../partials/_footer.php" ?>
-
-

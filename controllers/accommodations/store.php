@@ -15,7 +15,7 @@ if(is_array($_POST)) {
         $postValues[$key] = $values;
     }
 }else {
-   throw new \Exception("Wrong params passed");
+    throw new \Exception("Wrong params passed");
 }
 
 $columns = implode(", ", array_keys($postValues));
@@ -27,7 +27,7 @@ $values = array_combine(
 
 
 $db->query(
-    "insert into buses($columns) values($placeholders)", $postValues
+    "insert into accommodations($columns) values($placeholders)", $postValues
 );
 
-header("location: /buses");
+header("location: /accommodations");
