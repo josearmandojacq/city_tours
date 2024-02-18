@@ -60,8 +60,6 @@ if (isset($_FILES['image'])) {
             } else {
                 throw new \Exception("Bild könnte nicht kopiert worden");
             }
-        } else {
-            throw new \Exception("Error uploading file: {$_FILES['image']['error'][$i]}");
         }
     }
 }

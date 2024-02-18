@@ -9,7 +9,7 @@ $decoded_content = json_decode($content, true);
 
 
 $filters = $decoded_content['filters'];
-$tourId = $decoded_content["tourId"];
+$busId = $decoded_content['busId'];
 $conditions = [];
 
 if (empty($filters)) {
@@ -21,9 +21,7 @@ if (empty($filters)) {
 
     $sqlConditions = implode(' AND ', $conditions);
 
-    $buses = $db->query("select * from buses where tour_id = :id AND {$sqlConditions}", [
-        "id" => $tourId
-    ])->fetchAll();
+    $buses = $db->query("select * from buses where {$sqlConditions}")->fetchAll();
 }
 
 header('Content-Type: application/json');

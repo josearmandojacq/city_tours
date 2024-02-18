@@ -23,7 +23,6 @@
                         <input type="hidden" name="power_outlet" value="0">
                         <input type="hidden" name="entertainment" value="0">
                         <input type="hidden" name="board_service" value="0">
-                        <input type="hidden" name="booked" value="0">
                         <div>
                             <input name="wlan" type="checkbox" id="wlan" class="mr-3 rounded-md" value="1" <?php echo $bus["wlan"] == 1 ? "checked" : ""?>/>
                             <label for="wlan">Wlan</label>
@@ -48,10 +47,6 @@
                             <input name="board_service" type="checkbox" id="board_service" class="mr-3 rounded-md" value="1" <?php echo $bus["board_service"] == 1 ? "checked" : ""?>/>
                             <label for="board_service">Bordservice</label>
                         </div>
-                        <div>
-                            <input name="booked" type="checkbox" id="booked" class="mr-3 rounded-md" value="1" <?php echo $bus["booked"] == 1 ? "checked" : ""?>/>
-                            <label for="booked">Gebucht?</label>
-                        </div>
                     </fieldset>
                     <label class="block mb-4">
                         <span class="text-gray-700">Sitzplätze</span>
@@ -65,13 +60,6 @@
                         <input name="availability" type="date"
                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                value="<?php $date = new DateTime($bus["availability"]); echo $date->format('Y-m-d'); ?>"
-                        />
-                    </label>
-                    <label class="block mb-4">
-                        <span class="text-gray-700">Verbinde mit einem Tour(Tour ID)</span>
-                        <input name="tour_id" type="number"
-                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                               value="<?= $bus["tour_id"] ?? "" ?>"
                         />
                     </label>
                 </div>

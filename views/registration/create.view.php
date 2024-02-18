@@ -27,6 +27,11 @@
             <input name="confirmPassword" type="password"
                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                    placeholder=""/>
+            <div class="bg-gray-100 text-red-500">
+                <?php if (isset($errors["confirmPassword"])) : ?>
+                    <p><?= $errors["confirmPassword"] ?></p>
+                <?php endif; ?>
+            </div>
         </label>
         <button type="submit" class="block w-full py-2 bg-indigo-600 text-white rounded">
             Submit

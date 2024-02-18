@@ -4,11 +4,16 @@ use Core\{App, Database, Validator};
 
 $email = $_POST["email"];
 $password = $_POST["password"];
+$confirmPassword = $_POST["confirmPassword"];
 
 $errors = [];
 
 if (!Validator::email($email)) {
-    $errors["email"] = "Please provide a valid email address";
+    $errors["email"] = "Bitte geben Sie eine gültige E-Mail-Adresse an.";
+}
+
+if (!Validator::checkPassword($password, $confirmPassword)) {
+    $errors["confirmPassword"] = "Passwörter stimmen nicht überein.";
 }
 
 if (!empty($errors)) {

@@ -13,4 +13,9 @@ class Validator
     {
        return (bool)$password;
     }
+
+    public static function checkPassword($password, $confirmationPassword) :bool
+    {
+        return $password === $confirmationPassword;
+    }
 }

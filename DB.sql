@@ -36,31 +36,18 @@ CREATE TABLE buses
 (
     id              INT AUTO_INCREMENT PRIMARY KEY,
     register_plate  VARCHAR(255),
-    power_outlet    BOOLEAN DEFAULT 0,
-    wlan            BOOLEAN DEFAULT 0,
+    power_outlet    BOOLEAN  DEFAULT 0,
+    wlan            BOOLEAN  DEFAULT 0,
     seats           INT,
-    air_conditioner BOOLEAN DEFAULT 0,
-    toilet          BOOLEAN DEFAULT 0,
-    entertainment   BOOLEAN DEFAULT 0,
-    board_service   BOOLEAN DEFAULT 0,
+    air_conditioner BOOLEAN  DEFAULT 0,
+    toilet          BOOLEAN  DEFAULT 0,
+    entertainment   BOOLEAN  DEFAULT 0,
+    board_service   BOOLEAN  DEFAULT 0,
     availability    DATETIME,
-    tour_id         INT,
-    booked          BOOLEAN DEFAULT 0,
     created_at      DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at      DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (tour_id) REFERENCES tours (id)
 );
 
-CREATE TABLE bookings
-(
-    id         INT AUTO_INCREMENT PRIMARY KEY,
-    user_id    INT,
-    tour_id    INT,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users (id),
-    FOREIGN KEY (tour_id) REFERENCES tours (id)
-);
 
 CREATE TABLE accommodations
 (
@@ -69,10 +56,8 @@ CREATE TABLE accommodations
     type            VARCHAR(255),
     city            VARCHAR(255),
     available_rooms INT,
-    tour_id         INT,
     created_at      DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at      DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (tour_id) REFERENCES tours (id)
+    updated_at      DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE images
@@ -84,6 +69,21 @@ CREATE TABLE images
     accommodation_id INT,
     created_at       DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at       DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (tour_id) REFERENCES tours (id),
+    FOREIGN KEY (bus_id) REFERENCES buses (id),
+    FOREIGN KEY (accommodation_id) REFERENCES accommodations (id)
+);
+
+CREATE TABLE bookings
+(
+    id               INT AUTO_INCREMENT PRIMARY KEY,
+    user_id          INT,
+    tour_id          INT,
+    bus_id           INT,
+    accommodation_id INT,
+    created_at       DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at       DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users (id),
     FOREIGN KEY (tour_id) REFERENCES tours (id),
     FOREIGN KEY (bus_id) REFERENCES buses (id),
     FOREIGN KEY (accommodation_id) REFERENCES accommodations (id)

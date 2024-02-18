@@ -4,6 +4,8 @@
             <h4 class="font-medium">Tour</h4>
         </div>
         <form method="POST" action="/tour" class="grid grid-cols-1 gap-6" enctype="multipart/form-data">
+            <input type="hidden" name="_method" value="PUT">
+            <input type="hidden" name="id" value="<?= $tour["id"] ?>">
             <div class="container-e">
                 <div class="info-container-e">
                     <label class="block">
@@ -20,7 +22,7 @@
                     </label>
                     <label class="block">
                         <span class="text-gray-700">Datum</span>
-                        <input name="date" type="date" value="<?= $tour["date"]?>"
+                        <input name="date" type="date" value="<?php $date = new DateTime($tour["date"]); echo $date->format('Y-m-d'); ?>"
                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         />
                     </label>
@@ -38,6 +40,7 @@
                     </label>
                     <div>
                         <?php foreach ($travels as $travel) : ?>
+                            <input type="hidden" name="travelId" value="<?= $travel["id"] ?>">
                             <label class="block">
                                 <span class="text-gray-700">Abfahrtzeit</span>
                                 <input name="departure_time" type="time" value="<?= $travel["departure_time"]?>"

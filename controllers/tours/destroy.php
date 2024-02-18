@@ -37,10 +37,11 @@ $images = $db->query(
     ]
 )->fetchAll();
 
-if ($images)
-{
+if ($images) {
     foreach ($images as $image) {
-        unlink("/uploads/" . $image["name"]);
+        if (file_exists("/uploads/" . $image["name"])) {
+            unlink("/uploads/" . $image["name"]);
+        }
     }
 }
 

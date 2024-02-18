@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Title</title>
+    <title>City Tours</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="/assets/main.css"/>
     <link rel="stylesheet" href="/assets/main.css"/>
 </head>
 
@@ -32,16 +31,17 @@
                 <div id="dropdownMenu"
                      class="hidden absolute right-0 mt-2 bg-white divide-y divide-gray-100 rounded shadow-lg w-48">
                     <?php if (isset($_SESSION["user"])) : ?>
-                        <?php if ($_SESSION["user"]["role"] === "admin") : ?>
-                            <!-- Admin-specific links -->
-                            <a href="/buses" class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Busse</a>
-                            <a href="/accommodations" class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Unterkünfte</a>
-                        <?php endif; ?>
-                        <!-- Logout is available to all logged-in users, including admins -->
-                        <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Abmelden</a>
+                        <a href="/buses"
+                           class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Busse</a>
+                        <a href="/accommodations"
+                           class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Unterkünfte</a>
+                        <a href="/bookings" class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Buchungen</a>
+                        <a href="/logout"
+                           class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Abmelden</a>
                     <?php else : ?>
                         <!-- Links available to non-logged-in users -->
-                        <a href="/login" class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Anmelden</a>
+                        <a href="/login"
+                           class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Anmelden</a>
                         <a href="/register" class="block px-4 py-2 text-sm text-gray-700 hover:text-white transition">Registrieren</a>
                     <?php endif; ?>
 
@@ -53,15 +53,15 @@
 <!-- End Header -->
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const dropdownButton = document.getElementById('dropdownButton');
         const dropdownMenu = document.getElementById('dropdownMenu');
 
-        dropdownButton.addEventListener('click', function() {
+        dropdownButton.addEventListener('click', function () {
             dropdownMenu.classList.toggle('hidden');
         });
 
-        window.addEventListener('click', function(e) {
+        window.addEventListener('click', function (e) {
             if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
                 dropdownMenu.classList.add('hidden');
             }

@@ -30,12 +30,6 @@
                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         />
                     </label>
-                    <label class="block mb-4">
-                        <span class="text-gray-700">Verbinde mit einem Tour(Tour ID)</span>
-                        <input name="tour_id" type="number"
-                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                        />
-                    </label>
                 </div>
                 <div class="image-container-e">
                     <label class="block">
